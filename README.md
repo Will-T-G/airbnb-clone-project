@@ -2,7 +2,7 @@
 
 This is an Airbnb clone built with Next.js, TypeScript, Tailwind CSS, MongoDB, Prisma, Next auth, Leaflet and many other technologies.
 
-## Features
+## Feature Breakdown
 
 - User registration and authentication
 - Property listing and browsing
