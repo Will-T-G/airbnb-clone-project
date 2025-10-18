@@ -10,82 +10,97 @@ This is an Airbnb clone built with Next.js, TypeScript, Tailwind CSS, MongoDB, P
 - Search and filtering of properties
 - Interactive map using Leaflet to display property locations
 
-## Demo
+## Project Goals:
 
-You can check out a live demo of the Airbnb clone project [here](https://airbnb-clone-phi-green.vercel.app/).
+Build a responsive, secure, and interactive property rental platform.
 
-## Screenshots
+Strengthen understanding of full-stack development and deployment.
 
-<kbd><img width="944" alt="vacationhub" src="https://github.com/sudeepmahato16/airbnb_clone/assets/122378993/f893e203-8a2d-4ff1-ae20-67e64187b770"></kbd>
+Practice teamwork and role-based collaboration within a development team.
 
-<kbd><img width="886" alt="login-modal" src="https://github.com/sudeepmahato16/airbnb_clone/assets/122378993/3d6675e0-6046-48dc-b55f-7ef318581ccd"></kbd>
+## Team Roles
 
-<kbd><img width="810" alt="listing" src="https://github.com/sudeepmahato16/airbnb_clone/assets/122378993/a0b05a50-cbc2-40db-8f62-6cc203a7c887"></kbd>
+Frontend Developer - Builds the user interface using Next.js, React, and TailwindCSS to ensure a responsive and modern user experience.
 
-## Prerequisites
+Backend Developer - Designs and implements APIs, business logic, and integrates with the database using Prisma and Next.js API routes.
 
-Make sure you have the following software installed on your system:
+Database Administrator (DBA) - Manages MongoDB, ensuring data integrity, backups, and performance optimization.
 
-- git If you want to clone the project from GitHub and work with it locally, you will need to have Git installed on your system. You can download and install Git from the official website (https://git-scm.com/).
+UI/UX Designer - Creates wireframes and design prototypes that guide the user interface and improve usability.
 
-- Node.js Application requires Node.js to be installed on your system in order to run. You can download and install the latest version of Node.js from the official website (https://nodejs.org/).
+DevOps Engineer - Sets up CI/CD pipelines, manages deployment, and ensures application scalability and reliability.
 
-## Installation
+QA Engineer - Tests the app’s functionality, identifies bugs, and ensures a seamless user experience.
 
-- Clone the repository:
+## Technology Stack
 
-  ```
-  git clone https://github.com/sudeepmahato16/airbnb_clone.git
-  ```
+TypeScript - Adds static typing for better maintainability and fewer runtime errors.
 
-- Navigate to the project directory:
+Next.js - React framework for server-side rendering and full-stack development.
 
-  ```
-  cd Airbnb
-  ```
+MongoDB - NoSQL database for storing user, property, and booking data.
 
-- Install the dependencies:
+Prisma - ORM for managing database models and queries efficiently.
 
-  ```
-  npm install
-  ```
+TailwindCSS - Utility-first CSS framework for styling and responsive design.
 
-- Set up the environment variables:
+Leaflet - Library for rendering interactive maps and location-based features.
 
-  1.  Create a `.env.local` file in the root directory.
+Next-Auth - Handles authentication and secure user sessions.
 
-  2.  Add the following variables to the .env file, replacing the placeholder values with your own:
+React Query - Manages server state and handles API data fetching efficiently.
 
-      ```
-      DATABASE_URL=<your-mongodb-uri>
-      GITHUB_CLIENT_ID=<your-github-client-id>
-      GITHUB_CLIENT_SECRET=<your-github-client-secret>
-      GOOGLE_CLIENT_ID=<your-google-client-id>
-      GOOGLE_CLIENT_SECRET=<your-google-client-secret>
-      NEXTAUTH_SECRET=<your-nextauth-secret>
-      EDGE_STORE_ACCESS_KEY=<your-edge-store-access-key>
-      EDGE_STORE_SECRET_KEY=<your-edge-store-secret-key>
-      ```
+Zustand - Lightweight state management library for React.
 
-  ```
+## Database Design
 
-  ```
+Entities and Fields:
 
-## Usage
+Users
+Fields: id, name, email, password, createdAt
+→ A user can create multiple properties and bookings.
 
-- Start the development server:
+Properties
+Fields: id, title, description, price, location, ownerId
+→ Each property belongs to one user.
 
-  ```
-  npm run dev
-  ```
+Bookings
+Fields: id, userId, propertyId, startDate, endDate, totalPrice
+→ Each booking links a user and a property.
 
-- Open your browser and visit `http://localhost:3000` to access the application.
+Reviews
+Fields: id, userId, propertyId, rating, comment
+→ A property can have multiple reviews.
 
-## Contributing
+Payments
+Fields: id, bookingId, amount, status, createdAt
+→ Each payment is tied to a booking.
 
-Contributions are welcome! If you want to contribute to this project, please follow these steps:
+## API Security
 
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Commit your changes to the new branch.
-- Open a pull request back to the main repository, including a description of your changes.
+Security measures include:
+
+Authentication: Using Next-Auth for secure login sessions, which is very effective.
+
+Authorization: Restricting access to certain routes based on user roles.
+
+Input Validation: Preventing injection attacks by sanitizing inputs.
+
+Rate Limiting: Protecting APIs from abuse and excessive requests.
+
+Why it matters:
+These measures protect user data, ensure secure transactions, and maintain trust in the platform.
+
+## CI/CD Pipeline
+
+Definition:
+CI/CD (Continuous Integration and Continuous Deployment) automates testing, building, and deployment of the application to ensure fast and reliable releases.
+
+Tools:
+
+GitHub Actions: Automates build and deployment workflows.
+
+Docker: Containerizes the application for consistent environments.
+
+Vercel / AWS / Render: Potential platforms for automatic deployment.
+
